@@ -1,0 +1,26 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
+<h1><%= @date %></h1>
+
+<div class="container">
+  <% ((@date + 10.hours).to_i..(@date + 15.hours).to_i).step(1.hour) do |unix_timestamp| %>
+    <% booking_datetime = Time.zone.at(unix_timestamp) %>
+    <div class="row">
+      <div class="col-sm-1"><%= booking_datetime.strftime("%H:%M") %></div>
+      <div class="col-sm-11">
+        <% booking_at_time = Booking.find_by(time: booking_datetime) %>
+        <% if booking_at_time.present? %>
+          Already booked
+          <%= link_to 'Delete', booking_path(booking_at_time), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% else %>
+          <%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
+            <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
+            <%= f.submit "BOOK", class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

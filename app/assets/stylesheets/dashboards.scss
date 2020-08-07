@@ -1,0 +1,33 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: #CFD8DC;
+}
+
+navbar {
+  font-family: Arial;
+  font-size: 20px;
+}
+
+h1 {
+  font-family: Arial;
+  text-align: center;
+  font-size: 50px;
+  color: #455A64;
+}
+
+h2 {
+  font-family: Arial;
+  text-align: center;
+  font-size: 30px;
+  color: #455A64;
+}
+
+table {
+  border: 5px solid;
+  background-color: #FFFFCC;
+  font-family: Arial;
+  font-size: large;
+  height: 300px;
+}
