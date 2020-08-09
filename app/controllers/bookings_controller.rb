@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def destroy
     booking = Booking.find_by(id: params[:id])
-    date = booking.time&.strftime("%Y-%m-%d")
+    date = booking&.time&.strftime("%Y-%m-%d")
 
     if booking&.destroy
       flash[:success] = "Deleted"

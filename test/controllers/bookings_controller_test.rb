@@ -35,11 +35,11 @@ class BookingsControllerTest < ActionController::TestCase
     assert_equal "Deleted", flash[:success]
    end
 
-    # def test_unsuccessful_destroy
-      # assert_difference('Booking.count', 0) do
-        # delete :destroy, params: 
-      # end
-      # assert_redirected_to bookings_path
-      # assert_equal "Something went wrong...", flash[:danger]
-    # end
+  def test_unsuccessful_destroy
+    assert_difference('Booking.count', 0) do
+      delete :destroy, params: { id: 0 }
+    end
+    assert_redirected_to bookings_path
+    assert_equal "Something went wrong...", flash[:danger]
+  end
 end
