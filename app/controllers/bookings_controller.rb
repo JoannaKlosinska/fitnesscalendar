@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     @date = params[:date]&.to_date || Date.today
     # @date = params[:date] && params[:date].to_date || Date.today
@@ -6,7 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = current_user.bookings.build(booking_params)
     if @booking.save
       flash[:success] = "Booked!"
     else
@@ -16,7 +18,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    booking = Booking.find_by(id: params[:id])
+    booking = current_user.bookings.find_by(id: params[:id])
     date = booking&.time&.strftime("%Y-%m-%d")
 
     if booking&.destroy

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  root 'dashboards#index'
+  devise_for :users, :controllers => { sessions: 'users/sessions' }
+  root to: "dashboards#index"
 
+  resources :users do
+    resources :bookings, only: [:index, :destroy], controller: 'users/bookings'
+  end
   resources 'dashboards', only: [:index]
   resources 'bookings', only: [:index, :create, :destroy]
 end

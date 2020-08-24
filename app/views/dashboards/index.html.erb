@@ -1,7 +1,13 @@
 <body>
   <navbar>
-    <%= link_to('Sign up', '#') %><br>
-    <%= link_to('Log In', '#') %>
+    <% if user_signed_in? %>
+      <%= link_to "My bookings", user_bookings_path(user_id: current_user) %><br>
+      <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %><br>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><br>
+      <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
   </navbar>
   <div class="center jumbotron">
   <h1>Fitness Calendar</h1>

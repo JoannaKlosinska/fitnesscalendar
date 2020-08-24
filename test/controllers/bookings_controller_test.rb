@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class BookingsControllerTest < ActionController::TestCase
+  include Devise::Test::IntegrationHelpers
   def setup
     @booking = bookings(:first)
   end
