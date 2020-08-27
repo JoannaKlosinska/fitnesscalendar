@@ -16,7 +16,8 @@
 # def test_successful_destroy
 #   log_in_as @user
 #   assert_difference('Booking.count', -1) do
-#     delete :destroy, params: { }
+#     delete :destroy, params: { id: @booking.id }
 #   end
 #   assert_redirected_to user_bookings_path(user_id: @user)
 #   assert_equal "Deleted", flash[:success]
+# end 

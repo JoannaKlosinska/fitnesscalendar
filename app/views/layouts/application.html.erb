@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  </style>
     <title>Fitnesscalendar</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,8 +13,29 @@
   </head>
 
   <body>
-    <%= render 'layouts/alerts' %> 
     <%= render 'layouts/flash' %>
+
+    <header>
+    <h1 class="logo">
+      <a><%= link_to("Fitness Calendar", dashboards_path) %></a>
+    </h1>
+    
+    <navbar>
+      <ul>
+      <% if user_signed_in? %>
+        <li><a href><%= link_to "My bookings", user_bookings_path(user_id: current_user) %></a></li>
+        <li><a href><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %></a></li>
+        <li><a href><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
+      <% else %>
+        <li><a href><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></a></li>
+        <li><a href><%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %></a></li>
+      <% end %>
+      </ul>
+    </navbar>
+
+    </header>
+
     <%= yield %>
+   
   </body>
 </html>

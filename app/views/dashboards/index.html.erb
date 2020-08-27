@@ -1,41 +1,27 @@
-<body>
-  <navbar>
-    <% if user_signed_in? %>
-      <%= link_to "My bookings", user_bookings_path(user_id: current_user) %><br>
-      <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %><br>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><br>
-      <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
-  </navbar>
-  <div class="center jumbotron">
-  <h1>Fitness Calendar</h1>
-
-  <h2>
+<div class="container">
+  <div class="month">
     <% if @calendar.month == 1 %>
-      <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
+      <a href><%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %></a>
     <% else %>
-      <%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %>
+      <a href><%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %></a>
     <% end %>
     <%= @calendar.month_humanized %> <%= @calendar.year %>
     <% if @calendar.month == 12 %>
-      <%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %>
+      <a href><%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %></a>
     <% else %>
-      <%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %>
+      <a href><%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %></a>
     <% end %>
-  </h2>
   </div>
-  <table class="table table-bordered">
+  <table>
     <thead>
       <tr>
-        <th scope="col">Mon</th>
-        <th scope="col">Tue</th>
-        <th scope="col">Wed</th>
-        <th scope="col">Thu</th>
-        <th scope="col">Fri</th>
-        <th scope="col">Sat</th>
-        <th scope="col">Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
       </tr>
     </thead>
     <tbody>
@@ -44,7 +30,7 @@
           <% week.each do |day| %>
             <td>
               <% if day > 0 %>
-                <%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %>
+                <a href><%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %></a>
               <% end %>
             </td>
           <% end %>
@@ -52,4 +38,5 @@
       <% end %>
     </tbody>
   </table>
-</body>
+</div>
+

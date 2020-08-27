@@ -2,7 +2,7 @@ module Users
   class BookingsController < ApplicationController
     def index
       user = User.find_by(id: params[:user_id])
-      @bookings = user.bookings
+      @bookings = user.bookings.sort_by(&:time)
     end
 
     def destroy
