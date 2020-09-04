@@ -64,6 +64,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'https://serene-crag-71591.herokuapp.com/' }
 
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+        api_key: '6595daed79ddaa8197602b83ca4043b5-7cd1ac2b-c102060e',
+        domain: 'sandboxa0b2c026a64f49b790ba35428eb515a4'
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
