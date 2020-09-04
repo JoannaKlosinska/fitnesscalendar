@@ -6,10 +6,6 @@ class Calendar
 
   attr_reader :month, :year
 
-  def date(day)
-    Date.new(year, month, day)
-  end
-
   def month_humanized
     Date.new(year, month).strftime('%B')
   end

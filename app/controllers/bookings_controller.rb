@@ -4,17 +4,15 @@ class BookingsController < ApplicationController
   def index
     @date = params[:date]&.to_date || Date.today
     # @date = params[:date] && params[:date].to_date || Date.today
-    # flash[:notice] = 
-    redirect_to dashboards_path if @date < Date.today
     @booking = Booking.new
   end
 
   def create
     @booking = current_user.bookings.build(booking_params)
     if @booking.save
-      flash[:notice] = "Booked!"
+      flash[:success] = "Booked!"
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:danger] = "Something went wrong..."
     end
     redirect_to bookings_path(date: @booking.time&.strftime("%Y-%m-%d"))
   end
@@ -24,9 +22,9 @@ class BookingsController < ApplicationController
     date = booking&.time&.strftime("%Y-%m-%d")
 
     if booking&.destroy
-      flash[:notice] = "Deleted"
+      flash[:success] = "Deleted"
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:danger] = "Something went wrong..."
     end
   
     redirect_to bookings_path(date: date)

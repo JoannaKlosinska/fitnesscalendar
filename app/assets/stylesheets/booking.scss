@@ -1,22 +1,8 @@
-
+.box {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
 .list {
   list-style-type: none;
   align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-  width: 400px;
-  margin: 50px auto;
-  text-align: center;
 }
-.list li {
-  background-color: #EBF5FB;
-  padding: 20px 10px;
-  margin: 5px 0;
-}
-.list span {
-  margin: 0 20px;
-}
-.bookings {
-  text-align: center;
-}
-

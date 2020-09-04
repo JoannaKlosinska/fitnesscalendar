@@ -1,13 +1,12 @@
-<div class="container">
-  <h2>My Bookings</h2>
+<div class="box">
+  <h1>My Bookings</h1>
 
   <ul class="list">
     <% @bookings.each do |b| %>
       <li>
-        <span><%= b.time.strftime("%Y/%m/%d") %></span>
-        <span><%= b.time.strftime("%H:%M") %></span>
-        <span><%= link_to 'Delete', user_booking_path(user_id: current_user, id: b.id), 
-        method: :delete, data: { confirm: "Are you sure?" } %></span>
+        <%= b.time.strftime("%Y/%m/%d") %>
+        <%= b.time.strftime("%H:%M") %>
+        <%= link_to 'Delete', user_booking_path(user_id: current_user, id: b.id), method: :delete, data: { confirm: "Are you sure?" } %>
       </li>
     <% end %>
   </ul>

@@ -3,7 +3,6 @@
   max-width: 800px;
   margin: auto;
   font-family: 'Lato', sans-serif;
-  padding: 40px;
 }
 .container p {
   color: #000000;
@@ -13,13 +12,18 @@
   color: #ABB2B9;
 }
 /* navigation */
+header {
+  background-color: #90CAF9;
+  text-align: center;
+  width: 100%;
+}
 .logo {
+  text-align: center;
   letter-spacing: 5px;
   font-family: 'Lato', sans-serif;
   margin-left: 10px;
   text-transform: uppercase;
-  font-size: 30px;
-  
+  text-align: left;
 }
 .logo a {
   color: #FFFFFF;
@@ -28,36 +32,30 @@
 .logo a:hover {
   color: #000000;
 }
-.navbar {
-  background-color: #90CAF9;
-  width: 100%;
+navbar {
   position: relative;
-  margin: auto;
+  text-align: left;
+  top: 100%;
+  left: 0;
 }
-.navbar ul {
-  text-align: right;
-  list-style: none;
-  margin: 0 auto;
+navbar ul {
+  margin: 0;
   padding: 0;
-  display: block;
-  overflow: hidden; 
+  list-style: none;
   
 }
-.navbar li {
-  display: inline-block;
+navbar li {
   margin-bottom: 10px;
   margin-left: 10px;
 }
-.navbar li a {
-  display: block;
-  margin-right: 10px;
+navbar a {
   color: #FFFFFF;
   text-decoration: none;
   font-family: 'Lato', sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
-.navbar a:hover {
+navbar a:hover {
   color: #000000;
 }
 /* calendar */
@@ -103,16 +101,19 @@ td a:hover {
 td:hover {
   background-color: #ECEFF1;
 }
-.inactive {
-  color: grey;
-}
 /* alerts */
-
-.notice, .alert {
+#notice_wrapper {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #A3E4D7;
+}
+.notice {
   padding: 10px;
   text-align: center;
   margin: 0;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   letter-spacing: 3px;
@@ -142,7 +143,7 @@ input[type=password] {
   margin: 8px 0;
   box-sizing: border-box;
 }
-/* input[type=button], input[type=submit] {
+input[type=button], input[type=submit] {
   background-color: #90CAF9;
   border: none;
   color: white;
@@ -152,10 +153,12 @@ input[type=password] {
   height: 45px;
   cursor: pointer;
 }
-
 input[type=button], input[type=submit]:hover {
   background-color: #5DADE2;
 }
 .actions {
   margin: 10px 0;
-} */
+}
+.links {
+  color: #000000;
+}

@@ -13,24 +13,27 @@
   </head>
 
   <body>
+    <%= render 'layouts/flash' %>
 
-    <%= render 'layouts/alerts' %>
+    <header>
+    <h1 class="logo">
+      <a><%= link_to("Fitness Calendar", dashboards_path) %></a>
+    </h1>
     
-    <div class="navbar">
-      <div class="logo">
-        <a><%= link_to("Fitness Calendar", dashboards_path) %></a>
-      </div>
-        <ul>
-        <% if user_signed_in? %>
-          <li><a href><%= link_to "My bookings", user_bookings_path(user_id: current_user) %></a></li>
-          <li><a href><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %></a></li>
-          <li><a href><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
-        <% else %>
-          <li><a href><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></a></li>
-          <li><a href><%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %></a></li>
-        <% end %>
-        </ul>
-    </div>
+    <navbar>
+      <ul>
+      <% if user_signed_in? %>
+        <li><a href><%= link_to "My bookings", user_bookings_path(user_id: current_user) %></a></li>
+        <li><a href><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %></a></li>
+        <li><a href><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
+      <% else %>
+        <li><a href><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></a></li>
+        <li><a href><%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %></a></li>
+      <% end %>
+      </ul>
+    </navbar>
+
+    </header>
 
     <%= yield %>
    
