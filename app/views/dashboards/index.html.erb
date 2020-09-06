@@ -30,7 +30,11 @@
           <% week.each do |day| %>
             <td>
               <% if day > 0 %>
-                <a href><%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %></a>
+                <% if @calendar.date(day) >= Date.today %>
+                  <a href><%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %></a>
+                <% else %>
+                  <span class="inactive"><%= day %></span>
+                <% end %>
               <% end %>
             </td>
           <% end %>
