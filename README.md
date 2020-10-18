@@ -8,7 +8,7 @@ Ruby application which is made for booking trainings with specific coach. This a
 [You can open this application here!](https://serene-crag-71591.herokuapp.com/)
 
 ## Getting started
-To get started with , clone the repo and then install the needed gems:
+To get started, clone the repo and then install the needed gems:
 ```
 $ bundle install --without production
 ```
