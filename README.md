@@ -31,7 +31,7 @@ password: foobar
 This application use [gem Devise](https://github.com/heartcombo/devise) to authentication.
 
 ## In progess
-I am still working to add new possibilities. Next step is add coach model. Users will choose with which coach they want to train and they will see which coach have free hours in specific day. Coaches will have different site to sign in. They will see there a calendar of their trainings.
+I am still working to add new possibilities. Next step is add a coach model. Users will choose with which coach they want to train and they will see which coach have free hours in specific day. Coaches will have different site to sign in. They will see there a calendar of their trainings.
 
 ## Author
 Joanna Klosinska
