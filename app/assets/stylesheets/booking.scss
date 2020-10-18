@@ -1,22 +1,25 @@
 
-.list {
-  list-style-type: none;
-  align-items: center;
+.list ul {
+  position: relative;
+  width: 400px;
+  margin: 100px auto 0;
   padding: 10px;
   box-sizing: border-box;
-  width: 400px;
-  margin: 50px auto;
-  text-align: center;
 }
 .list li {
+  display: flex;
   background-color: #EBF5FB;
   padding: 20px 10px;
   margin: 5px 0;
 }
-.list span {
-  margin: 0 20px;
+.list span:nth-child(1) {
+  width: 100px;
 }
-.bookings {
-  text-align: center;
+.list span:nth-child(2) {
+  width: 50px;
 }
 
+.list span:nth-child(3) {
+  width: 400px;
+  text-align: right;
+}

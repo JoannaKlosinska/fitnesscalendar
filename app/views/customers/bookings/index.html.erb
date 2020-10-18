@@ -6,9 +6,8 @@
       <li>
         <span><%= b.time.strftime("%Y/%m/%d") %></span>
         <span><%= b.time.strftime("%H:%M") %></span>
-        <span><%= link_to 'Delete', user_booking_path(user_id: current_user, id: b.id), 
+        <span><%= link_to 'Delete', customer_booking_path(customer_id: current_customer, id: b.id), 
         method: :delete, data: { confirm: "Are you sure?" } %></span>
       </li>
     <% end %>
-  </ul>
 </div>

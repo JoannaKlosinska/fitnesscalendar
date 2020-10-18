@@ -1,20 +1,22 @@
 <div class="container">
 <h2><%= @date %></h2>
-<div class="bookings">
-  <% ((@date + 7.hours).to_i..(@date + 21.hours).to_i).step(1.hour) do |unix_timestamp| %>
-    <% booking_datetime = Time.zone.at(unix_timestamp) %>
-    <%= booking_datetime.strftime("%H:%M") %>
-        <% booking_at_time = Booking.find_by(time: booking_datetime) %>
-        <% if booking_at_time.present? %>
-          Already booked
-        <% elsif current_user.present? %>
-          <%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
-            <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
-            <%= f.submit "BOOK", class: "btn btn-primary" %>
+  <ul class="list">
+    <% ((@date + 7.hours).to_i..(@date + 21.hours).to_i).step(1.hour) do |unix_timestamp| %>
+      <li>
+      <% booking_datetime = Time.zone.at(unix_timestamp) %>
+      <span><%= booking_datetime.strftime("%H:%M") %></span>
+          <% booking_at_time = Booking.find_by(time: booking_datetime) %>
+          <% if booking_at_time.present? %>
+            Already booked
+          <% elsif current_customer.present? %>
+            <span><%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
+              <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
+                <%= f.button "BOOK", type: 'submit' %></span>
+            <% end %>
+          <% else %>
+          <span><button type="button" disabled>BOOK</button></span>
           <% end %>
-        <% else %>
-          <div class="btn btn-primary btn-disabled">BOOK</div>
-        <% end %>
-  <% end %>
-  </div>
+        </li>
+    <% end %>
+  </ul>
 </div>

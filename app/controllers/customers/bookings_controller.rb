@@ -1,14 +1,14 @@
-module Users
+module Customers
   class BookingsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_customer!
 
     def index
-      user = User.find_by(id: params[:user_id])
+      user = Customer.find_by(id: params[:customer_id])
       @bookings = user.bookings.sort_by(&:time)
     end
 
     def destroy
-      user = User.find_by(id: params[:user_id])
+      user = Customer.find_by(id: params[:customer_id])
       booking = user.bookings.find_by(id: params[:id])
   
       if booking&.destroy
@@ -17,7 +17,7 @@ module Users
         flash[:alert] = "Something went wrong..."
       end
     
-      redirect_to user_bookings_path(user_id: current_user)
+      redirect_to customer_bookings_path(customer_id: current_customer)
     end
   end
 end

@@ -1,15 +1,15 @@
 <div class="container">
   <div class="month">
     <% if @calendar.month == 1 %>
-      <a href><%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %></a>
+      <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
     <% else %>
-      <a href><%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %></a>
+      <%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %>
     <% end %>
     <%= @calendar.month_humanized %> <%= @calendar.year %>
     <% if @calendar.month == 12 %>
-      <a href><%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %></a>
+      <%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %>
     <% else %>
-      <a href><%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %></a>
+      <%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %>
     <% end %>
   </div>
   <table>
@@ -31,7 +31,7 @@
             <td>
               <% if day > 0 %>
                 <% if @calendar.date(day) >= Date.today %>
-                  <a href><%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %></a>
+                  <%= link_to(day, bookings_path(date: "#{@calendar.year}-#{@calendar.month}-#{day}")) %>
                 <% else %>
                   <span class="inactive"><%= day %></span>
                 <% end %>

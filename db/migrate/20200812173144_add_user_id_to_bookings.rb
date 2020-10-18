@@ -1,5 +1,5 @@
 class AddUserIdToBookings < ActiveRecord::Migration[6.0]
   def change
-    add_column :bookings, :user_id, :integer
+    add_column :bookings, :customer_id, :integer
   end
 end

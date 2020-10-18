@@ -18,16 +18,19 @@
     
     <div class="navbar">
       <div class="logo">
-        <a><%= link_to("Fitness Calendar", dashboards_path) %></a>
+        <%= link_to("Fitness Calendar", dashboards_path) %>
       </div>
         <ul>
-        <% if user_signed_in? %>
-          <li><a href><%= link_to "My bookings", user_bookings_path(user_id: current_user) %></a></li>
-          <li><a href><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %></a></li>
-          <li><a href><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
+        <% if customer_signed_in? %>
+          <li><%= link_to "My bookings", customer_bookings_path(customer_id: current_customer) %></li>
+          <li><%= link_to "Edit profile", edit_customer_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <% elsif coach_signed_in? %>
+          <li><%= link_to "Edit profile", edit_coach_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Logout", destroy_coach_session_path, method: :delete, :class => 'navbar-link' %></li>
         <% else %>
-          <li><a href><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></a></li>
-          <li><a href><%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %></a></li>
+          <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Sign in", new_customer_session_path, :class => 'navbar-link'  %></li>
         <% end %>
         </ul>
     </div>
