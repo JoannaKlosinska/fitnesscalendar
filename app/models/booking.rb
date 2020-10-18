@@ -3,6 +3,6 @@ class Booking < ApplicationRecord
 
   validates :time, presence: true
   validates :customer_id, presence: true
-  validates :coach.name, presence: true
+  # validates :coach.name, presence: true
   
 end
