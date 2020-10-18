@@ -20,8 +20,8 @@ ActiveRecord::Base.transaction do
     name = Faker::Name.name
     email = "sample-#{n+1}@mail.org"
     password = "password"
-    User.create!(
-      name: name,
+    Customer.create!(
+      name: name, 
       email: email,
       password: password,
       password_confirmation: password
