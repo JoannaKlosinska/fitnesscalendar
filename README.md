@@ -22,7 +22,7 @@ $ rails server
 ```
 
 ## Usage
-Application is made for users who want to book personal trainings with a coach. If they want to make a reservation, they have to sign up here first. Only sign in user can book a training. There are also 30 sample users shipped along with this app as default (shown in db/seeds.rb file).<br>
+Application is made for users who want to book personal trainings with a coach. If they want to make a reservation, they have to sign up first. Only sign in user can book a training. There are also 30 sample users shipped along with this app as default (shown in db/seeds.rb file).<br>
 If you want to see how this application works, please use my sample user to sign in:
 ```
 email: sampleuser@mail.com
