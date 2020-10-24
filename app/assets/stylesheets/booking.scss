@@ -12,14 +12,13 @@
   padding: 20px 10px;
   margin: 5px 0;
 }
-.list span:nth-child(1) {
-  width: 100px;
+.list li span:nth-child(1) {
+  width: 200px;
 }
-.list span:nth-child(2) {
-  width: 50px;
+.list li span:nth-child(2) {
+  width: 300px;
+}
+.list li span:nth-child(3) {
+  width: 300px;
 }
 
-.list span:nth-child(3) {
-  width: 400px;
-  text-align: right;
-}

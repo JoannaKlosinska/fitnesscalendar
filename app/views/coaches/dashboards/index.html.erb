@@ -1,4 +1,17 @@
+<% content_for :navbar do %>
+  <%= render 'coaches/navbar' %>
+<% end %>
+
 <div class="container">
   <h2>My Trainings</h2>
-
+  
+  <ul class="list">
+    <% @bookings.each do |b| %>
+      <li>
+        <span><%= b.time.strftime("%Y/%m/%d") %></span>
+        <span><%= b.time.strftime("%H:%M") %></span>
+        <span><%= b.customer.name %></span>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -5,16 +5,24 @@
       <li>
       <% booking_datetime = Time.zone.at(unix_timestamp) %>
       <span><%= booking_datetime.strftime("%H:%M") %></span>
-          <% booking_at_time = Booking.find_by(time: booking_datetime) %>
-          <% if booking_at_time.present? %>
+          <% customer_booking_at_time = Booking.find_by(time: booking_datetime, customer: current_customer) %>
+          
+          <% if customer_booking_at_time.present? %>
             Already booked
           <% elsif current_customer.present? %>
             <span><%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
-              <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
-                <%= f.button "BOOK", type: 'submit' %></span>
+              <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %></span>
+              <span>
+                <%= f.select :coach_id,
+                             Coach.where.not(
+                               id: Coach.joins(:bookings).where(bookings: { time: booking_datetime })
+                             ).collect { |c| [ c.name, c.id ] }, 
+                             include_blank: true %>
+              </span> 
+              <%= f.button "BOOK", type: 'submit' %>
             <% end %>
           <% else %>
-          <span><button type="button" disabled>BOOK</button></span>
+          <button type="button" disabled>BOOK</button>
           <% end %>
         </li>
     <% end %>

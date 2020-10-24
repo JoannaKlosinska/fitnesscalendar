@@ -1,0 +1,6 @@
+first: 
+  email: foo@baz.com
+  name: Foo Baz
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= 2.weeks.ago %>
+  type: Coach

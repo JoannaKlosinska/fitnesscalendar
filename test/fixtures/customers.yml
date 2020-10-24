@@ -9,6 +9,7 @@ one:
   name: Foo Bar
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= 2.weeks.ago %>
+  type: Customer
 #
 two: {}
 # column: value

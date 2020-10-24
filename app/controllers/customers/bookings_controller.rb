@@ -4,7 +4,7 @@ module Customers
 
     def index
       user = Customer.find_by(id: params[:customer_id])
-      @bookings = user.bookings.sort_by(&:time)
+      @bookings = user.bookings.order(:time)
     end
 
     def destroy

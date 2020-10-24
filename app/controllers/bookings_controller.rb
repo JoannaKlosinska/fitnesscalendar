@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save
       flash[:notice] = "Booked!"
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = "Choose your coach"
     end
     redirect_to bookings_path(date: @booking.time&.strftime("%Y-%m-%d"))
   end
@@ -35,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:time)
+    params.require(:booking).permit(:time, :coach_id)
   end
 end
