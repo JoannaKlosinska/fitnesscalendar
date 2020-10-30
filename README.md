@@ -4,8 +4,7 @@
 
 Ruby application which is made for booking trainings with specific coach. This application doesn't use [Simple Calendar Gem](https://github.com/excid3/simple_calendar).<br>
 <b>Important note: application is still in progess.</b>
-<br>
-[You can open this application here!](https://serene-crag-71591.herokuapp.com/)
+
 
 ## Getting started
 To get started, clone the repo and then install the needed gems:
