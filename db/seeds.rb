@@ -7,37 +7,64 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create a main sample customer.
-user = Customer.create!(name: "Sample User",
+customer = Customer.create!(name: "Sample User",
                         email: "sampleuser@mail.org",
                         password: "foobar",
                         password_confirmation: "foobar")
-user.skip_confirmation!
-user.save!
+customer.skip_confirmation!
+customer.save!
+
+# Create a main sample coach.
+coach = Coach.create!(name: "Mike",
+                      email: "mikecoach@mail.org",
+                      password: "password",
+                      password_confirmation: "password")
+coach.skip_confirmation!
+coach.save!
             
 # Generate a bunch of additional customers.
-ActiveRecord::Base.transaction do
-  30.times do |n|
-    name = Faker::Name.name
-    email = "sample-#{n+1}@mail.org"
-    password = "password"
-    Customer.create!(
-      name: name, 
-      email: email,
-      password: password,
-      password_confirmation: password
-    )
-  end
-
-# Bookings
-  20.times do |b|
-    day = Time.zone.today + (1..20).to_a.sample.days
-    time = day + (8..16).to_a.sample.hours
-    customer_id = Customer.pluck(:id).sample
-
-    Booking.create!(
-      time: time,
-      customer_id: customer_id
-    )
-  end
+30.times do |n|
+  name = Faker::Name.name
+  email = "sample-#{n+1}@mail.org"
+  password = "password"
+  Customer.create!(
+    name: name, 
+    email: email,
+    password: password,
+    password_confirmation: password
+  )
 end
 
+5.times do |n|
+  name = Faker::Name.name
+  email = "coach-#{n+1}@mail.org"
+  password = "password"
+  Coach.create!(
+    name: name, 
+    email: email,
+    password: password,
+    password_confirmation: password
+  )
+end
+
+# Bookings
+20.times do |b|
+  day = Time.zone.today + (1..20).to_a.sample.days
+  time = day + (8..16).to_a.sample.hours
+  customer_id = Customer.pluck(:id).sample
+  coach_id = Coach.pluck(:id).sample
+
+  Booking.create!(
+    time: time,
+    customer_id: customer_id,
+    coach_id: coach_id
+  )
+end
+
+# Schedule
+# Mon, Tue, Wed, Thu, Fri, Sat, Sun
+# {
+#   # 12 --> means 12-13
+#   monday: [],
+#   tuesday: [],
+# }

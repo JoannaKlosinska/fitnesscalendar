@@ -2,8 +2,9 @@ require 'test_helper'
 
 class BookingsControllerTest < ActionController::TestCase
   def setup
-    sign_in users(:one)
+    sign_in customers(:one)
     @booking = bookings(:first)
+    @coach = coaches(:first)
   end
 
   def test_correct_date_for_index_of_bookings

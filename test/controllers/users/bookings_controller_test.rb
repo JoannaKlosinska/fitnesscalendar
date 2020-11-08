@@ -1,9 +1,10 @@
 require 'test_helper'
 
-class Users::BookingsControllerTest < ActionController::TestCase
+class Customers::BookingsControllerTest < ActionController::TestCase
   def setup
-    @user = users(:one)
+    @user = customers(:one)
     @booking = bookings(:first)
+    @coach = coaches(:first)
     sign_in @user
   end
 
@@ -14,7 +15,7 @@ class Users::BookingsControllerTest < ActionController::TestCase
 
   def test_successful_destroy
     assert_difference('Booking.count', -1) do
-      delete :destroy, params: { id: @booking.id, customer_id: @user }
+      delete :destroy, params: { id: @booking.id, customer_id: @user, coach_id: @coach }
     end
     assert_redirected_to customer_bookings_path(customer_id: @user)
     assert_equal "Deleted", flash[:notice]
@@ -22,7 +23,7 @@ class Users::BookingsControllerTest < ActionController::TestCase
 
   def test_unsuccessful_destroy
     assert_difference('Booking.count', 0) do
-      delete :destroy, params: { id: 0, customer_id: @user }
+      delete :destroy, params: { id: 0, customer_id: @user, coach_id: @coach }
     end
     assert_redirected_to customer_bookings_path(customer_id: @user)
     assert_equal "Something went wrong...", flash[:alert]

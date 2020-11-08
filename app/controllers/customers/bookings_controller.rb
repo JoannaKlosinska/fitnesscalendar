@@ -3,13 +3,19 @@ module Customers
     before_action :authenticate_customer!
 
     def index
-      user = Customer.find_by(id: params[:customer_id])
-      @bookings = user.bookings.order(:time)
+      customer = set_customer
+
+      if customer != current_customer
+        flash[:notice] = "You do not have access"
+        redirect_to dashboards_path
+      end
+
+      @bookings = customer.bookings.order(:time)
     end
 
     def destroy
-      user = Customer.find_by(id: params[:customer_id])
-      booking = user.bookings.find_by(id: params[:id])
+      customer = set_customer
+      booking = customer.bookings.find_by(id: params[:id])
   
       if booking&.destroy
         flash[:notice] = "Deleted"
@@ -18,6 +24,12 @@ module Customers
       end
     
       redirect_to customer_bookings_path(customer_id: current_customer)
+    end
+
+    private
+
+    def set_customer
+      Customer.find_by(id: params[:customer_id])
     end
   end
 end
