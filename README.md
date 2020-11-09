@@ -2,7 +2,7 @@
 
 # Fitness Calendar
 
-Ruby application which is made for booking trainings with specific coach. This application doesn't use [Simple Calendar Gem](https://github.com/excid3/simple_calendar).<br>
+Ruby application which is made for booking trainings with specific coach.
 <b>Important note: application is still in progess.</b>
 
 
