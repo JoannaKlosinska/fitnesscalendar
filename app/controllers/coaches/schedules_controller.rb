@@ -5,3 +5,11 @@ class Coaches::SchedulesController < Coaches::BaseController
     
   end
 end
+
+# Schedule
+# Mon, Tue, Wed, Thu, Fri, Sat, Sun
+# {
+#   # 12 --> means 12-13
+#   monday: [],
+#   tuesday: [],
+# }

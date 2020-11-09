@@ -15,17 +15,17 @@ class BookingsControllerTest < ActionController::TestCase
 
   def test_creating_a_booking_with_valid_params
     assert_difference('Booking.count', 1) do
-      post :create, params: { booking: { time: Date.tomorrow.strftime("%Y-%m-%dT%H:%M") } }
+      post :create, params: { booking: { time: Date.tomorrow.strftime("%Y-%m-%dT%H:%M"), coach_id: @coach.id } }
     end
     assert_redirected_to bookings_path(date: Date.tomorrow.strftime("%Y-%m-%d"))
   end
 
   def test_creating_a_booking_with_invalid_params
     assert_difference('Booking.count', 0) do
-      post :create, params: { booking: { time: nil } }
+      post :create, params: { booking: { time: nil, coach_id: @coach.id } }
     end
     assert_redirected_to bookings_path
-    assert_equal "Something went wrong...", flash[:alert]
+    assert_equal "Choose your coach", flash[:alert]
   end
 
    def test_successful_destroy

@@ -60,11 +60,3 @@ end
     coach_id: coach_id
   )
 end
-
-# Schedule
-# Mon, Tue, Wed, Thu, Fri, Sat, Sun
-# {
-#   # 12 --> means 12-13
-#   monday: [],
-#   tuesday: [],
-# }
