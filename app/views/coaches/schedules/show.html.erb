@@ -4,4 +4,32 @@
 
 <div class="container">
   <h2>My Schedule</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th/>
+        <% @schedule_presenter.week.keys.each do |day_name| %>
+          <th><%= day_name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% values = @schedule_presenter.week.values %>
+      <% days_count = values.length %>
+      <% hours_count = values.first.length %>
+      <% (0..hours_count - 1).to_a.each do |hours_index| %>
+        <tr>
+          <% (0..days_count - 1).to_a.each do |days_index| %>
+            <% value = values[days_index][hours_index] %>
+            <% if days_index.zero? %>
+              <td><%= value[:hour] %></td>
+            <% end %>
+            <td><%= value[:booking] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
 </div>

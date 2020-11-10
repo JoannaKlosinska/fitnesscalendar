@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Calendar
   def initialize(month:, year:)
     @month = month
