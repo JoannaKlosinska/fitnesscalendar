@@ -19,5 +19,3 @@ class CalendarTest < MiniTest::Unit::TestCase
     )
   end
 end
-
-# http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference/

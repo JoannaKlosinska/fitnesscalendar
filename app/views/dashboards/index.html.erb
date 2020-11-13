@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="month">
+<div>
+  <div>
     <% if @calendar.month == 1 %>
       <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
     <% else %>

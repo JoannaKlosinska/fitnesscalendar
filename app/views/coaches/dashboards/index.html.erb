@@ -2,10 +2,9 @@
   <%= render 'coaches/navbar' %>
 <% end %>
 
-<div class="container">
   <h2>My Trainings</h2>
   
-  <ul class="list">
+  <ul>
     <% @bookings.each do |b| %>
       <li>
         <span><%= b.time.strftime("%Y/%m/%d") %></span>
@@ -14,4 +13,3 @@
       </li>
     <% end %>
   </ul>
-</div>
