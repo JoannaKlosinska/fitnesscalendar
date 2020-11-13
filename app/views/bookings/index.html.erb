@@ -1,4 +1,4 @@
-
+<div class="content">
 <h2><%= @date %></h2>
   <ul>
     <% ((@date + 7.hours).to_i..(@date + 21.hours).to_i).step(1.hour) do |unix_timestamp| %>
@@ -25,3 +25,4 @@
         </li>
     <% end %>
   </ul>
+</div>

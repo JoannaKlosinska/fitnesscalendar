@@ -15,28 +15,26 @@
   <body>
 
     <%= render 'layouts/alerts' %>
-
-    <% if content_for?(:navbar) %>
-      <%= yield(:navbar) %>
-    <% else %>
-    <div>
-      <div>
+    <div class="grid">
+      <% if content_for?(:navbar) %>
+        <%= yield(:navbar) %>
+      <% else %>
+      <div class="logo">
         <%= link_to("Fitness Calendar", dashboards_path) %>
       </div>
-        <ul>
-        <% if customer_signed_in? %>
-          <li><%= link_to "My bookings", customer_bookings_path(customer_id: current_customer) %></li>
-          <li><%= link_to "Edit profile", edit_customer_registration_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
-        <% else %>
-          <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Sign in", new_customer_session_path, :class => 'navbar-link'  %></li>
-        <% end %>
-        </ul>
-    </div>
+      <ul class="navbar">
+      <% if customer_signed_in? %>
+        <li><%= link_to "My bookings", customer_bookings_path(customer_id: current_customer) %></li>
+        <li><%= link_to "Edit profile", edit_customer_registration_path, :class => 'navbar-link' %></li>
+        <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
+      <% else %>
+        <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
+        <li><%= link_to "Sign in", new_customer_session_path, :class => 'navbar-link'  %></li>
+      <% end %>
+      </ul>
     <% end %>
-
+    
     <%= yield %>
-   
+    </div>
   </body>
 </html>

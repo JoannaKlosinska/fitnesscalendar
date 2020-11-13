@@ -1,17 +1,15 @@
-<div>
-  <div>
-    <% if @calendar.month == 1 %>
-      <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
-    <% else %>
-      <%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %>
-    <% end %>
-    <%= @calendar.month_humanized %> <%= @calendar.year %>
-    <% if @calendar.month == 12 %>
-      <%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %>
-    <% else %>
-      <%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %>
-    <% end %>
-  </div>
+<div class="content">
+  <% if @calendar.month == 1 %>
+    <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
+  <% else %>
+    <%= link_to('<', dashboards_path(month: @calendar.month - 1, year: @calendar.year)) %>
+  <% end %>
+  <%= @calendar.month_humanized %> <%= @calendar.year %>
+  <% if @calendar.month == 12 %>
+    <%= link_to('>', dashboards_path(month: 1, year: @calendar.year + 1)) %>
+  <% else %>
+    <%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %>
+  <% end %>
   <table>
     <thead>
       <tr>
