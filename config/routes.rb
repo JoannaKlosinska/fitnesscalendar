@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
   scope :coach do
     resources :dashboards, only: [:index], controller: 'coaches/dashboards', as: 'coach_dashboards'
-    resource :schedule, only: :show, controller: 'coaches/schedules'
+    resource :schedule, only: [:show, :update], controller: 'coaches/schedules'
   end
 end

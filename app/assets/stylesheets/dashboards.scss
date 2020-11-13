@@ -142,11 +142,10 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
   "logo navbar"
   "content content";
-  grid-gap: 10px;
   padding: 10px;
 }
 .logo {
@@ -161,6 +160,7 @@
 }
 .content {
   grid-area: "content";
+
 }
 ul {
   list-style: none;

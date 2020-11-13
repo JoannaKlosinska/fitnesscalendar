@@ -12,4 +12,16 @@ class Schedule < ApplicationRecord
       'Sun' => sunday
     }
   end
+
+  def abbr_to_day_names
+    {
+      'Mon' => 'monday',
+      'Tue' => 'tuesday',
+      'Wed' => 'wednesday',
+      'Thu' => 'thursday',
+      'Fri' => 'friday',
+      'Sat' => 'saturday',
+      'Sun' => 'sunday'
+    }
+  end
 end
