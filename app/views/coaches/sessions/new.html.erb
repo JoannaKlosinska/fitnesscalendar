@@ -1,9 +1,9 @@
 <% content_for :navbar do %>
   <%= render 'coaches/navbar' %>
 <% end %>
-
-<div class="content">
-  <h2>Sign In, Coach</h2>
+<div class="grid">
+  <div class="content">
+    <h2>Sign In, Coach</h2>
 
     <%= form_for(resource, as: resource_name, url: coach_session_path(resource_name)) do |f| %>
 
@@ -28,4 +28,5 @@
     <% end %>
 
     <%= render "devise/shared/links" %>
+  </div>
 </div>
