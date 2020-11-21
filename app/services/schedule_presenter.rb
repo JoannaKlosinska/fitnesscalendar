@@ -16,7 +16,7 @@ class SchedulePresenter
   def day(hours)
     # [0, 12, 15, 16]
     (7..21).to_a.map do |hour|
-      booking_present = if hours.include?(hour.to_s)
+      @booking_present = if hours.include?(hour.to_s)
         'YES'
       else
         'NO'
@@ -24,7 +24,7 @@ class SchedulePresenter
 
       {
         hour: "#{hour}:00 - #{hour + 1}:00",
-        booking: booking_present
+        booking: @booking_present
       }
       # "#{hour}:00 - #{hour + 1}:00 - #{booking_present}"
       # 7:00 - 8:00 - YES/NO
