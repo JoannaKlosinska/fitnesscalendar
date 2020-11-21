@@ -137,12 +137,17 @@
 
 // main //
 * {
-  background-color: #608490;
+  background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=2515&q=80");
   font-family: 'Lato', sans-serif;
+  background-attachment: fixed;
 }
 a, p {
   text-decoration: none;
   color: black;
+}
+h2 {
+  text-align: center;
+  letter-spacing: 3px;
 }
 ul {
   list-style: none;
@@ -158,13 +163,11 @@ ul {
   font-size: 25px;
   margin-top: 18px;
   a {
-    color: whitesmoke;
-    border: 1.5px solid #608490;
+    color: #EAEDED;
     padding: 5px 20px;
   }
   a:hover {
-    background-color: whitesmoke;
-    color: #608490;
+    color: black;
   }
 }
 .logo {
@@ -178,10 +181,60 @@ ul {
   justify-self: center;
   padding-top: 50px;
 }
-// /* alerts */
+// forms //
+.form {
+  color: #EAEDED;
+  .field {
+    padding: 7px 0;
+    a {
+      color: #EAEDED;
+    }
+    a:hover {
+      color: black;
+    }
+  }
+  input {
+    width: 300px;
+    border: 0;
+    margin: 10px 0;
+    border-bottom: 2px solid #EAEDED;
+    font-size: 15px;
+    color: #EAEDED;
+  }
+  input::placeholder {
+    color: #EAEDED;
+    font-size: 15px;
+  }
+  textarea:focus, input:focus{
+    outline: none;
+  }
+  *:focus {
+    outline: none;
+  }
+  input[type="checkbox"] {
+    width: 40px;
+  }
+  button {
+    width: 300px;
+    height: 45px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #EAEDED;
+    border: 2px solid #EAEDED;
+  }
+}
+// alerts //
 .notice, .alert {
-text-align: center;
-font-size: 15px;
-font-weight: bold;
-letter-spacing: 3px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  }
+// errors //
+.error_explanation {
+  color: black;
+  ul {
+    list-style-type: disc;
+  }
 }

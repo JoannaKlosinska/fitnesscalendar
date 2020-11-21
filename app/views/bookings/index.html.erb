@@ -13,9 +13,7 @@
             <%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
               <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
                 <%= f.select :coach_id,
-                             Coach.where.not(
-                               id: Coach.joins(:bookings).where(bookings: { time: booking_datetime })
-                             ).collect { |c| [ c.name, c.id ] }, 
+                             AvailableCoachesQuery.at(booking_datetime).collect { |c| [ c.name, c.id ] }, 
                              include_blank: true %>
               <%= f.button "BOOK", type: 'submit' %>
             <% end %>

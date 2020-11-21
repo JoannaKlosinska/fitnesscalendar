@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'nokogiri', '1.10.10'
+gem 'msgpack', '1.3.3'
 gem 'faker', '2.11.0'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
