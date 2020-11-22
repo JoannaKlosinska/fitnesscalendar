@@ -9,7 +9,7 @@ Ruby application which is made for booking trainings with specific coach. <br>
 ## Getting started
 To get started, clone the repo and then install the needed gems:
 ```
-$ bundle install --without production
+$ bundle install
 ```
 Next, migrate the database:
 ```
