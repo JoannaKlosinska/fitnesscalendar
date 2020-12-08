@@ -34,7 +34,7 @@ Please use my sample coach to sign in:
 email: mikecoach@mail.org
 password: password
 ```
-This application use [gem Devise](https://github.com/heartcombo/devise) to authentication.
+This application use [gem Devise](https://github.com/heartcombo/devise) for authentication.
 
 ## In progess
 I am still working to add new possibilities. Next step is add a schedule to coach page. In this schedule, coach will choose in which hours and days during whole week he can work.
