@@ -28,7 +28,7 @@ If you want to see how this application works, please use my sample user to sign
 email: sampleuser@mail.com
 password: foobar
 ```
-You can also sign in as a coach. Coaches have different login page, you need to add to a homepage address: '/coach/sign_in'. After sign in, you will see a page for a coach - list of trainings with customers and coach's schedule. In this schedule coach can mark in which days and in which hours he will work. Coaches can't sign up by their own. There are also 5 sample coaches shipped along with this app as default (shown in db/seeds.rb file). <br>
+You can also sign in as a coach. Coaches have different login page, you need to add to a homepage address: '/coach/sign_in'. After sign in, you will see a page for a coach - a list of trainings with customers and coach's schedule. In this schedule coach can mark in which days and in which hours he will work. Coaches can't sign up by their own. There are also 5 sample coaches shipped along with this app as default (shown in db/seeds.rb file). <br>
 Please use my sample coach to sign in:
 ```
 email: mikecoach@mail.org
