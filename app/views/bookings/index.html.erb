@@ -1,26 +1,32 @@
 <div class="content">
-<h2><%= @date %></h2>
-  <ul>
-    <% ((@date + 7.hours).to_i..(@date + 21.hours).to_i).step(1.hour) do |unix_timestamp| %>
-      <li>
-      <% booking_datetime = Time.zone.at(unix_timestamp) %>
-      <%= booking_datetime.strftime("%H:%M") %>
-          <% customer_booking_at_time = Booking.find_by(time: booking_datetime, customer: current_customer) %>
+  <h2><%= @date %></h2>
+  <div class="booking">
+    <ul>
+      <% ((@date + 7.hours).to_i..(@date + 21.hours).to_i).step(1.hour) do |unix_timestamp| %>
+        <li>
+        <% booking_datetime = Time.zone.at(unix_timestamp) %>
+        <%= booking_datetime.strftime("%H:%M") %>
+            <% customer_booking_at_time = Booking.find_by(time: booking_datetime, customer: current_customer) %>
           
-          <% if customer_booking_at_time.present? %>
-            Already booked
-          <% elsif current_customer.present? %>
-            <%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
-              <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
-                <%= f.select :coach_id,
-                             AvailableCoachesQuery.at(booking_datetime).collect { |c| [ c.name, c.id ] }, 
-                             include_blank: true %>
-              <%= f.button "BOOK", type: 'submit' %>
+            <% if customer_booking_at_time.present? %>
+              Booked
+            <% elsif current_customer.present? %>
+              <%= form_with(model: @booking, scope: :booking, url: bookings_path) do |f| %>
+                <%= f.hidden_field :time, value: booking_datetime.strftime("%Y-%m-%dT%H:%M") %>
+                  <% if AvailableCoachesQuery.at(booking_datetime).present? %>
+                    <%= f.select :coach_id,
+                                AvailableCoachesQuery.at(booking_datetime).collect { |c| [ c.name, c.id ] }, 
+                                include_blank: true %>
+                    <%= f.button "BOOK", type: 'submit' %>
+                  <% else %> 
+                    Unavailable
+                  <% end %>
+              <% end %>
+            <% else %>
+            <button type="button" disabled>BOOK</button>
             <% end %>
-          <% else %>
-          <button type="button" disabled>BOOK</button>
-          <% end %>
-        </li>
-    <% end %>
-  </ul>
+          </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

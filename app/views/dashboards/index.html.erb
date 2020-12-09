@@ -1,4 +1,6 @@
 <div class="content">
+  <div class="calendar">
+  <h3>
   <% if @calendar.month == 1 %>
     <%= link_to('<', dashboards_path(month: 12, year: @calendar.year - 1)) %>
   <% else %>
@@ -10,6 +12,7 @@
   <% else %>
     <%= link_to('>', dashboards_path(month: @calendar.month + 1, year: @calendar.year)) %>
   <% end %>
+  </h3>
   <table>
     <thead>
       <tr>
@@ -40,5 +43,6 @@
       <% end %>
     </tbody>
   </table>
+  </div>
 </div>
 

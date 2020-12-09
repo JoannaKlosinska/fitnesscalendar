@@ -3,42 +3,44 @@
 <% end %>
 <div class="grid">
   <div class="content">
-    <h2>My Schedule</h2>
+    <div class="schedule">
+      <h2>My Schedule</h2>
 
-    <%= form_for @schedule, url: schedule_path, method: :patch do |f| %>
-      <table>
-        <thead>
-          <tr>
-            <th/>
-            <% @schedule_presenter.week.keys.each do |day_name| %>
-              <th><%= day_name %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <% keys = @schedule_presenter.week.keys %>
-          <% values = @schedule_presenter.week.values %>
-          <% days_count = values.length %>
-          <% hours_count = values.first.length %>
-          <% (0..hours_count - 1).to_a.each do |hours_index| %>
+      <%= form_for @schedule, url: schedule_path, method: :patch do |f| %>
+        <table>
+          <thead>
             <tr>
-              <% (0..days_count - 1).to_a.each do |days_index| %>
-                <% value = values[days_index][hours_index] %>
-                <% if days_index.zero? %>
-                <td><%= value[:hour] %></td>
-                <% end %>
-                <td>
-                  <%= check_box_tag("schedule[#{@schedule.abbr_to_day_names[keys[days_index]]}][]",
-                                    value[:hour].split(':').first,
-                                    value[:booking] == 'YES') %>
-                </td>
+              <th>
+              <% @schedule_presenter.week.keys.each do |day_name| %>
+                <th><%= day_name %></th>
               <% end %>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% keys = @schedule_presenter.week.keys %>
+            <% values = @schedule_presenter.week.values %>
+            <% days_count = values.length %>
+            <% hours_count = values.first.length %>
+            <% (0..hours_count - 1).to_a.each do |hours_index| %>
+              <tr>
+                <% (0..days_count - 1).to_a.each do |days_index| %>
+                  <% value = values[days_index][hours_index] %>
+                  <% if days_index.zero? %>
+                  <td><%= value[:hour] %></td>
+                  <% end %>
+                  <td>
+                    <%= check_box_tag("schedule[#{@schedule.abbr_to_day_names[keys[days_index]]}][]",
+                                      value[:hour].split(':').first,
+                                      value[:booking] == 'YES') %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <%= f.submit 'Update' %>
-    <% end %>
+        <%= f.button 'Update', type: 'submit' %>
+      <% end %>
+    </div>
   </div>
 </div>

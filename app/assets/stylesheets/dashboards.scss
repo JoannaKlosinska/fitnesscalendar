@@ -1,151 +1,13 @@
-// .container {
-//   max-width: 800px;
-//   margin: auto;
-//   font-family: 'Lato', sans-serif;
-//   padding: 40px;
-// }
-// .container p {
-//   color: #000000;
-//   text-decoration: none;
-// }
-// .container p:hover {
-//   color: #ABB2B9;
-// }
-// /* navigation */
-// .navbar {
-//   display: flex;
-//   justify-content: space-between;
-//   background-color: #90CAF9;
-//   width: 100%;
-//   height: 50px;
-//   margin: auto;
-// }
-// .logo {
-//   align-self: center;
-//   letter-spacing: 5px;
-//   font-family: 'Lato', sans-serif;
-//   margin-left: 10px;
-//   text-transform: uppercase;
-//   font-size: 30px;
-// }
-// .logo a {
-//   color: #FFFFFF;
-//   text-decoration: none;
-// }
-// .logo a:hover {
-//   color: #000000;
-// }
-// .navbar ul {
-//   align-self: center;
-//   align-items: right;
-//   list-style: none; 
-// }
-// .navbar li {
-//   display: inline-block;
-// }
-// .navbar li a {
-//   margin-right: 10px;
-//   color: #FFFFFF;
-//   text-decoration: none;
-//   font-family: 'Lato', sans-serif;
-//   letter-spacing: 3px;
-//   text-transform: uppercase;
-// }
-// .navbar a:hover {
-//   color: #000000;
-// }
-// /* calendar */
-// .month {
-//   font-family: 'Lato', sans-serif;
-//   text-align: center;
-//   letter-spacing: 3px;
-//   font-size: 30px;
-//   color: #FFFFFF;
-//   background-color: #BBDEFB;
-//   padding: 25px;
-//   border: 2px solid #ECEFF1;
-// }
-// .month a {
-//   color: #FFFFFF;
-//   text-decoration: none;
-// }
-// .month a:hover {
-//   color: #000000;
-// }
-// table, th, td {
-//   width: 100%;
-//   table-layout: fixed;
-//   text-align: center;
-//   border-collapse: collapse;
-//   border: 2px solid #ECEFF1;
-//   font-family: 'Lato', sans-serif;
-//   font-size: 20px;
-// }
-// tr, th, td {
-//   padding: 15px;
-// }
-// th {
-//   background-color: #CFD8DC;
-// }
-// td a {
-//   color: #000000;
-//   text-decoration: none;
-// }
-// td a:hover {
-//   color: #FFFFFF;
-// }
-// td:hover {
-//   background-color: #ECEFF1;
-// }
-// .inactive {
-//   color: grey;
-// }
-
-// /* alerts */
-// .notice, .alert {
-//   padding: 10px;
-//   text-align: center;
-//   margin: 0;
-//   font-size: 15px;
-//   font-weight: bold;
-//   font-family: 'Lato', sans-serif;
-//   letter-spacing: 3px;
-// }
-// /* forms */
-// h2 {
-//   font-family: 'Lato', sans-serif;
-//   text-align: center;
-//   font-size: 40px;
-//   letter-spacing: 3px;
-// }
-// .form {
-//   font-family: 'Lato', sans-serif;
-//   width: 340px;
-//   margin: 20px auto;
-// }
-
-// input {
-//   display: block;
-//   padding: 10px;
-//   width: 300px;
-//   margin-bottom: 15px;
-// }
-
-// .actions {
-//   margin: 10px 0;
-// }
-
 // main //
 * {
-  background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=2515&q=80");
+  background: url("photo-image.jpeg");
   font-family: 'Lato', sans-serif;
   background-attachment: fixed;
 }
 a, p {
   text-decoration: none;
-  color: black;
 }
-h2 {
+h2, h3 {
   text-align: center;
   letter-spacing: 3px;
 }
@@ -180,6 +42,7 @@ ul {
 .content {
   justify-self: center;
   padding-top: 50px;
+  color: #EAEDED;
 }
 // forms //
 .form {
@@ -223,6 +86,174 @@ ul {
     color: #EAEDED;
     border: 2px solid #EAEDED;
   }
+  button:hover {
+    color: black;
+    background: #EAEDED;
+  }
+}
+// calendar //
+.calendar {
+  a {
+    color: #EAEDED;
+  }
+  a:hover {
+    color: black;
+  }
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+  }
+  table {
+    width: 500px;
+    height: 300px;
+  }
+  tbody {
+    text-align: center;
+  }
+  td {
+    width: 50px;
+    height: 50px;
+    a {
+      color: #EAEDED;
+    }
+    a:hover {
+      color: black;
+      background: #EAEDED;
+      padding: 10px;
+    }
+  }
+  .inactive {
+    color: #839192;
+  }
+}
+// bookings //
+.booking {
+  li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  width: 300px;
+  word-spacing: 45px;
+  }
+  button {
+    border: 1px solid #EAEDED;
+    color: #EAEDED;
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+  button:hover {
+    color: black;
+    background: #EAEDED;
+  }
+  button:disabled,
+  button[disabled] {
+    color: black;
+    background: url("photo-image.jpeg");
+    background-attachment: fixed;
+  }
+  select {
+    width: 80px;
+    font-size: 15px;
+    background: #EAEDED;
+    border: none;
+  }
+}
+.bookings-list {
+  li {
+  display: flex;
+  padding: 10px;
+  width: 500px;
+  margin: 10px 0;
+  }
+  li span:nth-child(1) {
+    width: 150px;
+  }
+  li span:nth-child(2) {
+    width: 100px;
+  }
+  li span:nth-child(3) {
+    width: 200px;
+  }
+  .button {
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #EAEDED;
+    border: 1px solid #EAEDED;
+  }
+  .button:hover {
+    color: black;
+    background: #EAEDED;
+    border: 1px solid #EAEDED;
+  }
+}
+// trainings //
+.trainings-list {
+  li {
+    display: flex;
+    padding: 10px;
+    width: 500px;
+    margin: 10px 0;
+  }
+  li span:nth-child(1) {
+    width: 190px;
+  }
+  li span:nth-child(2) {
+    width: 150px;
+  }
+}
+// schedule //
+.schedule {
+  text-align: center;
+  table {
+    width: 500px;
+    height: 300px;
+    padding-bottom: 10px;
+  }
+  button {
+    width: 500px;
+    height: 30px;
+    border: 1px solid #EAEDED;
+    color: #EAEDED;
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+  button:hover {
+    color: black;
+    background: #EAEDED;
+  }
+}
+// pagination //
+.apple_pagination {
+  text-align: center;
+  padding: 10px;
+  cursor: default; 
+}
+.apple_pagination a, .apple_pagination span {
+  padding: 0.2em 0.3em; 
+}
+.apple_pagination .disabled {
+  color: #839192;
+  }
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em; 
+}
+.apple_pagination a {
+  text-decoration: none;
+  color: #EAEDED; 
+}
+.apple_pagination a:hover, .apple_pagination a:focus {
+  color: black; 
 }
 // alerts //
 .notice, .alert {

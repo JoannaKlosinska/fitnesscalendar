@@ -3,16 +3,21 @@
 <% end %>
 <div class="grid">
   <div class="content">
-    <h2>My Trainings</h2>
+    <div class="trainings-list">
+      <h2>My Trainings</h2>
   
-    <ul>
-      <% @bookings.each do |b| %>
-        <li>
-          <span><%= b.time.strftime("%Y/%m/%d") %></span>
-          <span><%= b.time.strftime("%H:%M") %></span>
-          <span><%= b.customer.name %></span>
-        </li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @bookings.each do |b| %>
+          <li>
+            <span><%= b.time.strftime("%Y/%m/%d") %></span>
+            <span><%= b.time.strftime("%H:%M") %></span>
+            <span><%= b.customer.name %></span>
+          </li>
+        <% end %>
+      </ul>
+      <div class="apple_pagination">
+        <%= will_paginate @bookings %>
+      </div>
+    </div>
   </div>
 </div>

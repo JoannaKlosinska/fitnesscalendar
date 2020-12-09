@@ -1,15 +1,19 @@
 <div class="content">
   <h2>My Bookings</h2>
-
-  <ul>
-    <% @bookings.each do |b| %>
-      <li>
-        <%= b.time.strftime("%Y/%m/%d") %>
-        <%= b.time.strftime("%H:%M") %>
-        <%= b.coach.name %>
-        <%= link_to 'Delete', customer_booking_path(customer_id: current_customer, id: b.id), 
-        method: :delete, data: { confirm: "Are you sure?" } %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="bookings-list">
+    <ul>
+      <% @bookings.each do |b| %>
+        <li>
+          <span><%= b.time.strftime("%Y/%m/%d") %></span>
+          <span><%= b.time.strftime("%H:%M") %></span>
+          <span><%= b.coach.name %></span>
+          <span><%= button_to 'Delete', customer_booking_path(customer_id: current_customer, id: b.id), 
+          method: :delete, data: { confirm: "Are you sure?" }, :class => "button" %></span>
+        </li>
+      <% end %>
+    </ul>
+    <div class="apple_pagination">
+      <%= will_paginate %>
+    </div>
+  </div>
 </div>

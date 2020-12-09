@@ -10,7 +10,7 @@ module Customers
         redirect_to dashboards_path
       end
 
-      @bookings = customer.bookings.order(:time)
+      @bookings = customer.bookings.order(:time).paginate(page: params[:page], per_page: 6) 
     end
 
     def destroy

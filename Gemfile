@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'will_paginate'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'nokogiri', '1.10.10'
 gem 'msgpack', '1.3.3'
