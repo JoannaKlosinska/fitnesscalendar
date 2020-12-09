@@ -28,7 +28,7 @@ If you want to see how this application works, please use my sample user to sign
 email: sampleuser@mail.com
 password: foobar
 ```
-You can also sign in as a coach. Coaches have different login page, you need to add to homepage address: '/coach/sign_in'. After sign in, you will see a page for a coach, coach's schedule and trainings with customers. Coaches can't sign up by their own. There are also 5 sample coaches shipped along with this app as default (shown in db/seeds.rb file). <br>
+You can also sign in as a coach. Coaches have different login page, you need to add to a homepage address: '/coach/sign_in'. After sign in, you will see a page for a coach - list of trainings with customers and coach's schedule. In this schedule coach can mark in which days and in which hours he will work. Coaches can't sign up by their own. There are also 5 sample coaches shipped along with this app as default (shown in db/seeds.rb file). <br>
 Please use my sample coach to sign in:
 ```
 email: mikecoach@mail.org
@@ -37,7 +37,7 @@ password: password
 This application use [gem Devise](https://github.com/heartcombo/devise) for authentication.
 
 ## In progess
-I am still working to add new possibilities. Next step is add a schedule to coach page. In this schedule, coach will choose in which hours and days during whole week he can work.
+Next step is write all tests and make them green. I am also going to deploy the appliaction on Heroku. 
 
 ## Author
 Joanna Klosinska
