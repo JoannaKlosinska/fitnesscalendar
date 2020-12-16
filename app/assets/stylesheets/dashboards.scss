@@ -4,8 +4,12 @@
   font-family: 'Lato', sans-serif;
   background-attachment: fixed;
 }
-a, p {
+h2, h3, li, a, p {
   text-decoration: none;
+  color: #EAEDED;
+}
+a:hover {
+  color: black;
 }
 h2, h3 {
   text-align: center;
@@ -13,6 +17,14 @@ h2, h3 {
 }
 ul {
   list-style: none;
+}
+.button, button {
+  color: #EAEDED;
+  border: 2px solid #EAEDED;
+}
+.button:hover, button:hover {
+  color: black;
+  background: #EAEDED;
 }
 .grid {
   display: grid;
@@ -25,11 +37,7 @@ ul {
   font-size: 25px;
   margin-top: 18px;
   a {
-    color: #EAEDED;
     padding: 5px 20px;
-  }
-  a:hover {
-    color: black;
   }
 }
 .logo {
@@ -41,20 +49,13 @@ ul {
 // content //
 .content {
   justify-self: center;
-  padding-top: 50px;
-  color: #EAEDED;
+  padding-top: 50px; 
 }
 // forms //
 .form {
   color: #EAEDED;
   .field {
     padding: 7px 0;
-    a {
-      color: #EAEDED;
-    }
-    a:hover {
-      color: black;
-    }
   }
   input {
     width: 300px;
@@ -83,22 +84,11 @@ ul {
     font-size: 17px;
     letter-spacing: 2px;
     font-weight: bold;
-    color: #EAEDED;
-    border: 2px solid #EAEDED;
-  }
-  button:hover {
-    color: black;
-    background: #EAEDED;
   }
 }
 // calendar //
 .calendar {
-  a {
-    color: #EAEDED;
-  }
-  a:hover {
-    color: black;
-  }
+  color: #EAEDED;
   h3 {
     display: flex;
     justify-content: space-between;
@@ -116,10 +106,8 @@ ul {
     height: 50px;
     a {
       display: block;
-      color: #EAEDED;
     }
     a:hover {
-      color: black;
       background: #EAEDED;
       padding: 10px;
     }
@@ -140,13 +128,8 @@ ul {
   }
   button {
     border: 1px solid #EAEDED;
-    color: #EAEDED;
     font-size: 17px;
     letter-spacing: 2px;
-  }
-  button:hover {
-    color: black;
-    background: #EAEDED;
   }
   button:disabled,
   button[disabled] {
@@ -180,12 +163,6 @@ ul {
   .button {
     font-size: 17px;
     letter-spacing: 2px;
-    color: #EAEDED;
-    border: 1px solid #EAEDED;
-  }
-  .button:hover {
-    color: black;
-    background: #EAEDED;
     border: 1px solid #EAEDED;
   }
 }
@@ -206,6 +183,7 @@ ul {
 }
 // schedule //
 .schedule {
+  color: #EAEDED;
   text-align: center;
   table {
     width: 500px;
@@ -216,13 +194,8 @@ ul {
     width: 500px;
     height: 30px;
     border: 1px solid #EAEDED;
-    color: #EAEDED;
     font-size: 17px;
     letter-spacing: 2px;
-  }
-  button:hover {
-    color: black;
-    background: #EAEDED;
   }
 }
 // pagination //
@@ -251,7 +224,6 @@ ul {
 }
 .apple_pagination a {
   text-decoration: none;
-  color: #EAEDED; 
 }
 .apple_pagination a:hover, .apple_pagination a:focus {
   color: black; 
