@@ -1,8 +1,12 @@
+
 // main //
-* {
-  background: url("photo-image.jpeg");
+body {
+  background: url("photo-image.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: 'Lato', sans-serif;
-  background-attachment: fixed;
 }
 h2, h3, li, a, p {
   text-decoration: none;
@@ -21,6 +25,7 @@ ul {
 .button, button {
   color: #EAEDED;
   border: 2px solid #EAEDED;
+  background: transparent;
 }
 .button:hover, button:hover {
   color: black;
@@ -64,6 +69,7 @@ ul {
     border-bottom: 2px solid #EAEDED;
     font-size: 15px;
     color: #EAEDED;
+    background: transparent;
   }
   input::placeholder {
     color: #EAEDED;
@@ -134,8 +140,7 @@ ul {
   button:disabled,
   button[disabled] {
     color: black;
-    background: url("photo-image.jpeg");
-    background-attachment: fixed;
+    background: transparent;
   }
   select {
     width: 80px;
@@ -240,5 +245,100 @@ ul {
   color: black;
   ul {
     list-style-type: disc;
+  }
+}
+
+
+// media queries //
+@media only screen and (max-width: 320px) {
+  h2 {
+    font-size: 20px;
+  }
+  // navigation //
+  .navigation-bar {
+    display: block;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    padding: 0px;
+  }
+  .navbar li {
+    text-align: left;
+  }
+  // bookings //
+  .booking {
+    li {
+    display: inline-block;
+    padding: 10px;
+    font-size: 13px;
+    }
+  }
+  // schedule //
+  .schedule {
+    font-size: 11px; 
+  }
+}
+@media only screen and (max-width: 480px) {
+  h3 {
+    font-size: 20px;
+  }
+  // navigation //
+  .navigation-bar {
+    letter-spacing: 1.5px;
+    font-size: 15px;
+  }
+  .navbar li {
+    display: block;
+  }
+  // calendar //
+  .calendar {
+    h3 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    table {
+      width: 100px;
+      height: 50px;
+    }
+    tbody {
+      text-align: center;
+    }
+    td {
+      width: 30px;
+      height: 30px;
+      a {
+        display: block;
+      }
+      a:hover {
+        background: #EAEDED;
+        padding: 1.5px;
+      }
+    }
+  }
+  // bookings //
+  .bookings-list {
+    li {
+      display: block;
+      width: 150px;
+      font-size: 15px;
+    }
+  }
+  // trainings //
+  .trainings-list {
+    li {
+      display: block;
+      font-size: 15px;
+      width: 150px;
+    }
+  }
+  // schedule //
+  .schedule {
+    table {
+      width: 100px;
+      height: 50px;
+    }
+    button {
+      width: 100%;
+    }
   }
 }
