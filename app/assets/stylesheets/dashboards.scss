@@ -342,3 +342,18 @@ ul {
     }
   }
 }
+@media only screen and (min-width: 500px) and (max-width: 800px) {
+  // navigation //
+  .navigation-bar {
+    font-size: 20px;
+  }
+  .navbar li {
+    display: block;
+ }
+  // bookings //
+  .bookings-list {
+    li {
+      width: 430px;
+    }
+  }
+}
