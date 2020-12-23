@@ -66,4 +66,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # Allow connections to local server.
   config.hosts.clear
+
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '492611247054-05rjb1go2nv8jaid8acerl4udfgtdnhd.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = 'dOD9H3FHrHED0O88Qx8Lhfae'
 end

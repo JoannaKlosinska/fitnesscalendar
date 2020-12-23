@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'nokogiri', '1.10.10'

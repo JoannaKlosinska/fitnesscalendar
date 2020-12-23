@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :customers, path: 'users', controllers: { 
     sessions: 'customers/sessions', 
-    confirmations: 'customers/confirmations'
+    confirmations: 'customers/confirmations',
+    omniauth_callbacks: 'customers/omniauth_callbacks'
   }
 
   root to: "dashboards#index"
