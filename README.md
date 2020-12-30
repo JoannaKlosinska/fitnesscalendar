@@ -3,7 +3,7 @@
 # Fitness Calendar
 
 Ruby application which is made for booking trainings with specific coach. <br>
-Technologies: Ruby 2.7, Rails 6.0, HTML5, CSS3. <br>
+Technologies: Ruby 2.7, Rails 6.0, PostgreSQL, HTML5, CSS3. <br>
 <b>Important note: application is still in progess.</b>
 
 
