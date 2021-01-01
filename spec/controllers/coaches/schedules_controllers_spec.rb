@@ -1,33 +1,57 @@
 require "rails_helper"
 
-describe Coaches::SchedulesController do
-  describe "#show" do
-    it "shows current coach schedule" do
-      coach = Coach.create
-      schedule = coach.schedule
-      visit schedule_path
+describe Coaches::SchedulesController, type: :controller do
+  fixtures(:coaches)
 
-      expect(page).to have_content(schedule)
-    end
-  end
+  let(:coach) { coaches(:first)}
+  let!(:schedule) { Schedule.create(coach: coach, monday: ["12"]) }
 
   describe "#update" do
     context "with valid attributes" do
-      it "redirects to updated schedule" do
-        coach = Coach.create
-        schedule = coach.schedule
+      let(:valid_attributes) do
+        {
+          schedule: {
+            monday: ["8", "11"]
+          }
+        }
+      end
+      
+      it "updates the record" do
+        sign_in(coach)
+        patch(:update, params: valid_attributes)
 
-        expect(response).to redirect_to(schedule_path)
+        expect(schedule.reload.monday).to eq ["8", "11"]
+      end
+
+      it "redirects to #show" do
+        sign_in(coach)
+        patch(:update, params: valid_attributes)
+
+        expect(:response).to redirect_to schedule_path
       end
     end
 
     context "with invalid attributes" do
-      it "render show" do
-        coach = Coach.create
-        schedule = coach.schedule
-        visit '/coach/schedule'
-        click_on 'Update'
-        expect(page).to render_template(:show)
+      let(:invalid_attributes) do
+        {
+          schedule: {
+            monday: ["24"]
+          }
+        }
+      end
+
+      it "does not update the record" do
+        sign_in(coach)
+        patch(:update, params: invalid_attributes)
+
+        expect(schedule.reload.monday).to eq ["12"]
+      end
+
+      it "render show with errors" do
+        sign_in(coach)
+        patch(:update, params: invalid_attributes)
+
+        expect(:response).to render_template(:show)
       end
     end
   end

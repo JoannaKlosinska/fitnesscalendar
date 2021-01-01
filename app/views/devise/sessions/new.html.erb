@@ -17,10 +17,10 @@
       <% end %>
       <br>
       <%= f.button "Sign in", type: 'submit' %>
-      <br>
-      <%= link_to "Sign in with Google", customer_google_oauth2_omniauth_authorize_path %>
     <% end %>
-
+    <br>
+    
+    <%= link_to "Sign in with Google", customer_google_oauth2_omniauth_authorize_path %>
     <%= render "devise/shared/links" %>
   </div>
 </div>
