@@ -25,7 +25,7 @@ $ rails server
 Application is made for users who want to book personal trainings with a coach. If they want to make a reservation, they have to sign up first. Only sign in user can book a training. There are also 30 sample users shipped along with this app as default (shown in db/seeds.rb file).<br>
 If you want to see how this application works, please use my sample user to sign in:
 ```
-email: sampleuser@mail.com
+email: sampleuser@mail.org
 password: foobar
 ```
 You can also sign in as a coach. Coaches have different login page, you need to add to a homepage address: '/coach/sign_in'. After sign in, you will see a page for a coach - a list of trainings with customers and coach's schedule. In this schedule coach can mark in which days and in which hours he will work. Coaches can't sign up by their own. There are also 5 sample coaches shipped along with this app as default (shown in db/seeds.rb file). <br>
