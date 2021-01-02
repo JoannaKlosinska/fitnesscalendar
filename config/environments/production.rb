@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
+  # config.assets.css_compressor = :sas
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.serve_static_assets = true
@@ -63,19 +63,19 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'https://serene-crag-71591.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://hidden-fjord-24782.herokuapp.com/' }
   
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV['MAILGUN_API_KEY'],
-    domain: 'sandboxb972f36c2131409f87c9b637e59b6c6e.mailgun.org',
+    domain: 'sandbox71fc3bb3979742b8908da5518812e09e.mailgun.org',
   }
   # ActionMailer::Base.smtp_settings = {
   #   :port           => ENV['MAILGUN_SMTP_PORT'],
   #   :address        => ENV['MAILGUN_SMTP_SERVER'],
   #   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   #   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  #   :domain         => 'serene-crag-71591.herokuapp.com',
+  #   :domain         => 'https://hidden-fjord-24782.herokuapp.com/',
   #   :authentication => :plain,
   # }
   # ActionMailer::Base.delivery_method = :smtp
