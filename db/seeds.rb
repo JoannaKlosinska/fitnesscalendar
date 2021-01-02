@@ -33,6 +33,8 @@ coach.save!
     password: password,
     password_confirmation: password
   )
+  Customer.skip_confirmation!
+  Customer.save!
 end
 
 5.times do |n|
@@ -45,6 +47,8 @@ end
     password: password,
     password_confirmation: password
   )
+  Coach.skip_confirmation!
+  Coach.save!
 end
 # Random schedules for coaches
 schedule1 = Coach.first.schedule
