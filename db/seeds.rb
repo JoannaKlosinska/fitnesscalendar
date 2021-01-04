@@ -11,16 +11,12 @@ customer = Customer.create!(name: "Sample User",
                         email: "sampleuser@mail.org",
                         password: "foobar",
                         password_confirmation: "foobar")
-customer.skip_confirmation!
-customer.save!
 
 # Create a main sample coach.
 coach = Coach.create!(name: "Mike",
                       email: "mikecoach@mail.org",
                       password: "password",
                       password_confirmation: "password")
-coach.skip_confirmation!
-coach.save!
             
 # Generate a bunch of additional customers.
 30.times do |n|
@@ -33,8 +29,6 @@ coach.save!
     password: password,
     password_confirmation: password
   )
-  Customer.skip_confirmation!
-  Customer.save!
 end
 
 5.times do |n|
@@ -47,8 +41,6 @@ end
     password: password,
     password_confirmation: password
   )
-  Coach.skip_confirmation!
-  Coach.save!
 end
 # Random schedules for coaches
 schedule1 = Coach.first.schedule
