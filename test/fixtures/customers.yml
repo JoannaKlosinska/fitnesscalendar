@@ -8,7 +8,6 @@ one:
   email: foo@bar.com
   name: Foo Bar
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= 2.weeks.ago %>
 #
 two: {}
 # column: value

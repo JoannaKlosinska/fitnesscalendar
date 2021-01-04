@@ -13,8 +13,7 @@ class Customer < User
         name: full_name,
         email: email,
         password: password,
-        password_confirmation: password,
-        confirmed_at: Time.zone.now
+        password_confirmation: password
       )
     end
 
