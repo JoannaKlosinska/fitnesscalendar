@@ -4,7 +4,7 @@
 
 Ruby application which is made for booking trainings with specific coach. <br>
 Technologies: Ruby 2.7, Rails 6.0, PostgreSQL, HTML5, CSS3. <br>
-<b>Important note: application is still in progess.</b>
+<b>[You can open my app here!](https://hidden-fjord-24782.herokuapp.com/)</b>
 
 
 ## Getting started
@@ -35,9 +35,6 @@ email: mikecoach@mail.org
 password: password
 ```
 This application use [gem Devise](https://github.com/heartcombo/devise) for authentication.
-
-## In progess
-Next step is write all tests and make them green. I am also going to deploy the appliaction on Heroku. 
 
 ## Author
 Joanna Klosinska
