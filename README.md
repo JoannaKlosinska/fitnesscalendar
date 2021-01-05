@@ -2,7 +2,7 @@
 
 # Fitness Calendar
 
-Ruby application which is made for booking trainings with specific coach. <br>
+Ruby application which is made for booking trainings with a specific coach. <br>
 Technologies: Ruby 2.7, Rails 6.0, PostgreSQL, HTML5, CSS3. <br>
 <b>[You can open my app here!](https://hidden-fjord-24782.herokuapp.com/)</b>
 
