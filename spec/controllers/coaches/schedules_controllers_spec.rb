@@ -3,7 +3,7 @@ require "rails_helper"
 describe Coaches::SchedulesController, type: :controller do
   fixtures(:coaches)
 
-  let(:coach) { coaches(:first)}
+  let(:coach) { coaches(:first) }
   let!(:schedule) { Schedule.create(coach: coach, monday: ["12"]) }
 
   describe "#update" do
