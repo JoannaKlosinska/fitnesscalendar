@@ -25,6 +25,7 @@ class Coaches::SessionsController < Devise::SessionsController
     yield if block_given?
     redirect_to new_coach_session_path
   end
+  
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
