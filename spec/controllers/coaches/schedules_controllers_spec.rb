@@ -1,9 +1,9 @@
 require "rails_helper"
 
 describe Coaches::SchedulesController, type: :controller do
-  fixtures(:coaches)
+  fixtures(:users)
 
-  let(:coach) { coaches(:first) }
+  let(:coach) { users(:first) }
   let!(:schedule) { Schedule.create(coach: coach, monday: ["12"]) }
 
   describe "#update" do

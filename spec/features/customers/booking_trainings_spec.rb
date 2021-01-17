@@ -1,39 +1,39 @@
 require 'rails_helper'
 
 feature 'Booking' do
-  fixtures(:customers, :coaches)
+  fixtures(:users)
 
   scenario 'A user successfully book a training' do
     Timecop.freeze(Date.new(2021, 1, 11)) do
-      Schedule.create(coach: Coach.first, monday: ['10'])
+      Schedule.create(coach: Coach.first, monday: ['8'])
 
       sign_in('foo@bar.com')
 
       visit '/'
       click_link '11'
-      within(find('li', text: '10:00')) do
+      within(find('li', text: '08:00')) do
         select 'Foo Baz', from: 'booking_coach_id'
         click_on 'BOOK'
       end
       
       expect(page).to have_content 'Booked!'
-      within(find('li', text: '10:00')) do
+      within(find('li', text: '08:00')) do
         expect(page).to have_content 'Booked'
         expect(page).not_to have_content 'BOOK'
       end
     end
   end
   
-  scenario 'A user fails book a trainig' do
+  scenario 'A user fails to book a trainig' do
     Timecop.freeze(Date.new(2021, 1, 12)) do
       Schedule.create(coach: Coach.first, tuesday: ['11'])
 
       sign_in('foo@bar.com')
 
       visit '/'
-      click_link '12'
+      click_link '12' 
       within(find('li', text: '11:00')) do
-        click_on 'BOOK'
+        click_button 'BOOK'
       end
 
       expect(page).to have_content 'Choose your coach'
